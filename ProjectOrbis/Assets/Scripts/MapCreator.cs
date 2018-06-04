@@ -25,7 +25,11 @@ public class MapCreator : MonoBehaviour {
 
                 } else if (col == Color.white) {
                     Instantiate(metalFloor, new Vector2(x, y), Quaternion.identity);
-                }
+                    
+                        
+                    
+
+                } 
 
             }
               

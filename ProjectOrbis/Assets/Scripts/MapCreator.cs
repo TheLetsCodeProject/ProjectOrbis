@@ -7,6 +7,7 @@ public class MapCreator : MonoBehaviour {
     public GameObject crate;
     public Texture2D level;
     public GameObject metalFloor;
+    public GameObject MissingTexture;
 
 	// Use this for initialization
 	void Awake () {
@@ -23,13 +24,17 @@ public class MapCreator : MonoBehaviour {
                     Instantiate(crate, new Vector2(x, y), Quaternion.identity);
 
 
-                } else if (col == Color.white) {
+                }
+                else if (col == Color.white) {
                     Instantiate(metalFloor, new Vector2(x, y), Quaternion.identity);
-                    
-                        
-                    
 
-                } 
+
+                }
+                else {
+                    Instantiate(MissingTexture, new Vector2(x, y), Quaternion.identity);
+                
+                    
+                }
 
             }
               

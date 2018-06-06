@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crate: {fileID: 1558756583262464, guid: 7e1ef828005521e4f89212cfb6b058fb, type: 2}
-  level: {fileID: 2800000, guid: dd22f9a2bfa038348b80d183ff1f4800, type: 3}
+  level: {fileID: 2800000, guid: 3fe2365fe3d07ab4589884e246c557a6, type: 3}
   metalFloor: {fileID: 1705203017016740, guid: ab855c1a5052a4744baca12a61a140ab, type: 2}
   MissingTexture: {fileID: 1264400516673986, guid: 0df18fa8f99cc624c9caaed069f35317,
     type: 2}
@@ -202,7 +202,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 1.9
+  orthographic size: 4.25
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

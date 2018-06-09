@@ -4,14 +4,27 @@ using UnityEngine;
 
 public class MapCreator : MonoBehaviour {
 
-    public GameObject crate;
+    private Dictionary<Color, GameObject> objectDictionary = new Dictionary<Color, GameObject>();
+
     public Texture2D level;
-    public GameObject metalFloor;
     public GameObject MissingTexture;
 
-	// Use this for initialization
-	void Awake () {
+    public ObjectColorPair[] pairs = new ObjectColorPair[1];
 
+
+    // Use this for initialization
+    void Awake()
+    {
+        for (int i = 0; i < pairs.Length; i++) {
+            objectDictionary.Add(pairs[i].Key, pairs[i].tile);
+
+
+        }
+
+    }
+
+    private void Start()
+    {
         int width = level.width;
         int height = level.height;
 
@@ -20,27 +33,35 @@ public class MapCreator : MonoBehaviour {
 
                 Color col = level.GetPixel(x, y);
 
-                if (col == Color.black) {
-                    Instantiate(crate, new Vector2(x, y), Quaternion.identity);
-
-
-                }
-                else if (col == Color.white) {
-                    Instantiate(metalFloor, new Vector2(x, y), Quaternion.identity);
-
-
+                if (objectDictionary.ContainsKey(col)) {
+                    GameObject go = Instantiate(objectDictionary[col], new Vector2(x, y), Quaternion.identity, transform);
+                    go.name = string.Format("tile ({0}, {1})", x, y);
                 }
                 else {
-                    Instantiate(MissingTexture, new Vector2(x, y), Quaternion.identity);
-                
-                    
+                    GameObject go = Instantiate(MissingTexture, new Vector2(x, y), Quaternion.identity, transform);
+                    go.name = string.Format("tile ({0}, {1})", x, y);
                 }
 
+
+
+
+
             }
-              
+
 
         }
-	}
-	
-	
+    }
+
+
+}
+
+
+[System.Serializable]
+public struct ObjectColorPair
+{
+    public Color Key;
+    [Header("GameObject To Spawn")]
+    public GameObject tile;
+    
+
 }

@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4617343104872646}
   - component: {fileID: 212659745218325694}
   m_Layer: 0
-  m_Name: Bricks_1
+  m_Name: FancyFloor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

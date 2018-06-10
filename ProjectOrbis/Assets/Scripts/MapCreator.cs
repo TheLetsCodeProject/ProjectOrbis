@@ -13,6 +13,9 @@ public class MapCreator : MonoBehaviour {
     public Texture2D level;
     public GameObject MissingTexture;
 
+    [Space(10)]
+
+    [Header("Object-Color Dictionary")]
     //The array so that we can set values in inspector
     public ObjectColorPair[] pairs = new ObjectColorPair[1];
 
@@ -54,8 +57,10 @@ namespace Orbis { namespace Data {
         [System.Serializable]
         public struct ObjectColorPair
         {
+            [Space(5)]
+            [Header("Object-Color Pair")]
             public Color Key;
-            [Header("GameObject To Spawn")]
+            [Tooltip("The gameobject to spawn")]
             public GameObject tile;
         }
 

@@ -1,24 +1,26 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Orbis.Data;
 
 public class MapCreator : MonoBehaviour {
 
+    //Creates our prefab dictionary
     private Dictionary<Color, GameObject> objectDictionary = new Dictionary<Color, GameObject>();
 
+    [Header("Level Settings")]
+    [Tooltip("The level texture to load")]
     public Texture2D level;
     public GameObject MissingTexture;
 
+    //The array so that we can set values in inspector
     public ObjectColorPair[] pairs = new ObjectColorPair[1];
-
 
     // Use this for initialization
     void Awake()
     {
         for (int i = 0; i < pairs.Length; i++) {
             objectDictionary.Add(pairs[i].Key, pairs[i].tile);
-
-
         }
 
     }
@@ -42,26 +44,20 @@ public class MapCreator : MonoBehaviour {
                     go.name = string.Format("tile ({0}, {1})", x, y);
                 }
 
-
-
-
-
             }
-
-
         }
     }
-
-
 }
 
+namespace Orbis { namespace Data {
 
-[System.Serializable]
-public struct ObjectColorPair
-{
-    public Color Key;
-    [Header("GameObject To Spawn")]
-    public GameObject tile;
-    
+        [System.Serializable]
+        public struct ObjectColorPair
+        {
+            public Color Key;
+            [Header("GameObject To Spawn")]
+            public GameObject tile;
+        }
 
+    }
 }

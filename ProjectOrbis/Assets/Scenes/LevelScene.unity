@@ -140,7 +140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e9d732ebce3ce348ad27574ed1483de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: {fileID: 2800000, guid: 3fe2365fe3d07ab4589884e246c557a6, type: 3}
+  level: {fileID: 2800000, guid: c62efb47a6d9d4840a9422af63162306, type: 3}
   MissingTexture: {fileID: 1264400516673986, guid: 0df18fa8f99cc624c9caaed069f35317,
     type: 2}
   pairs:
@@ -156,6 +156,8 @@ MonoBehaviour:
     tile: {fileID: 1510169631824388, guid: b3eb11c4493717c45a77e51afc057163, type: 2}
   - Key: {r: 1, g: 1, b: 0, a: 1}
     tile: {fileID: 1600715548520660, guid: 789290d6574ac2143b689cac2cdc4469, type: 2}
+  - Key: {r: 0, g: 1, b: 1, a: 1}
+    tile: {fileID: 1016212258284686, guid: efabb96e02e3d5141b33bfa69a4bbf67, type: 2}
 --- !u!4 &516925618
 Transform:
   m_ObjectHideFlags: 0

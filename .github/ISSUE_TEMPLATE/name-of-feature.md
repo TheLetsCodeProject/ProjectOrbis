@@ -1,6 +1,6 @@
 ---
-name: Name of feature
-about: Describe this issue template's purpose here.
+name: New Feature
+about: For use when adding a new feature to the issues list.
 
 ---
 

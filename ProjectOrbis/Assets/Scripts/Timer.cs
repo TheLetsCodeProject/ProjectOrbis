@@ -47,7 +47,7 @@ namespace Orbis {
             /// </summary>
             /// <param name="time">the time in seconds to format</param>
             /// <returns>formatted time as a string</returns>
-            public static string FormatTime(float time)
+            public string FormatTime(float time)
             {
                 string minutes = Mathf.Floor(time / 60).ToString("00");
                 string seconds = (time % 60).ToString("00.00");

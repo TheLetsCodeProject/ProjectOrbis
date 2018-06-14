@@ -75,7 +75,7 @@ namespace Orbis {
             /// <returns>formatted time as a string</returns>
             public TimeData FormatTime(float time)
             {
-                return new TimeData(time);
+                return new TimeData(time, defaultSecondFormat, defaultMinuteFormat);
             }
 
             public static TimeData FormatTime(float time, string secondsFormatOption, string minutesFormatOption)
@@ -119,14 +119,6 @@ namespace Orbis {
             public float Seconds { get; private set; }
 
             public string TimeString;
-
-            public TimeData(float seconds)
-            {
-                Minutes = Mathf.Floor(seconds / 60);
-                Seconds = (seconds % 60);
-
-                TimeString = Minutes.ToString("00") + ":" + Seconds.ToString("00.00");
-            }
 
             public TimeData(float seconds, string opt1, string opt2)
             {

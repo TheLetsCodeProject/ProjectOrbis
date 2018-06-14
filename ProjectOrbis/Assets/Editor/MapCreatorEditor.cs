@@ -59,7 +59,10 @@ public class MapCreatorEditor : Editor {
         for (int i = 0; i < array.Length; i++) {
             ObjectColorPair o = array[i];
             DocString += "a {";
-            DocString += string.Format("color: rgb({0},{1},{2});", o.Key.r * 255, o.Key.g * 255, o.Key.b * 255);
+            DocString += string.Format("color: rgb({0},{1},{2});", 
+                Mathf.Round(o.Key.r * 255), 
+                Mathf.Round(o.Key.g * 255), 
+                Mathf.Round(o.Key.b * 255));
             DocString += "}";
         }
 

@@ -8,12 +8,23 @@ namespace Orbis {
 
         public class Timer
         {
+            const string FORMAT_OPTION_M = "00";
+            const string FORMAT_OPTION_S = "00.00";
+
+            string defaultMinuteFormat = FORMAT_OPTION_M;
+            string defaultSecondFormat = FORMAT_OPTION_S;
 
             float StartTime;
             float EndTime;
             float TotalTime;
 
             public bool isStarted = false;
+
+            public Timer(string secondsFormatOption, string minutesFormatOption)
+            {
+                defaultMinuteFormat = minutesFormatOption;
+                defaultSecondFormat = secondsFormatOption;
+            }
 
             /// <summary>
             /// Starts timer.
@@ -40,11 +51,10 @@ namespace Orbis {
                     isStarted = false;
                     return TotalTime;
                 } else {
-                    Debug.LogError("Timer has not started");
+                    Debug.LogWarning("Timer has not started");
                     return 0f;
                 }
                 
-;
             }
 
             /// <summary>
@@ -55,6 +65,7 @@ namespace Orbis {
                 TotalTime = 0;
                 StartTime = 0;
                 EndTime = 0;
+                isStarted = false;
             }
 
             /// <summary>
@@ -67,6 +78,11 @@ namespace Orbis {
                 return new TimeData(time);
             }
 
+            public static TimeData FormatTime(float time, string secondsFormatOption, string minutesFormatOption)
+            {
+                return new TimeData(time, secondsFormatOption, minutesFormatOption);
+            }
+
             /// <summary>
             /// Gets the timer's last time, formatted by the FormatTime method
             /// </summary>
@@ -76,6 +92,10 @@ namespace Orbis {
                 return FormatTime(TotalTime);
             }
 
+            /// <summary>
+            /// Returns current display time.
+            /// </summary>
+            /// <returns></returns>
             public string GetCurrentTimeString()
             {
                 if (isStarted) {
@@ -106,6 +126,14 @@ namespace Orbis {
                 Seconds = (seconds % 60);
 
                 TimeString = Minutes.ToString("00") + ":" + Seconds.ToString("00.00");
+            }
+
+            public TimeData(float seconds, string opt1, string opt2)
+            {
+                Minutes = Mathf.Floor(seconds / 60);
+                Seconds = (seconds % 60);
+
+                TimeString = Minutes.ToString(opt2) + ":" + Seconds.ToString(opt1);
             }
 
             public static implicit operator string(TimeData t)

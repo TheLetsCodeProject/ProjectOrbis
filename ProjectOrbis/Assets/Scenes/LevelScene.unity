@@ -140,7 +140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e9d732ebce3ce348ad27574ed1483de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: {fileID: 2800000, guid: c62efb47a6d9d4840a9422af63162306, type: 3}
+  level: {fileID: 2800000, guid: 3fe2365fe3d07ab4589884e246c557a6, type: 3}
   MissingTexture: {fileID: 1264400516673986, guid: 0df18fa8f99cc624c9caaed069f35317,
     type: 2}
   Player: {fileID: 1156104910512566, guid: 7d725aca001d43249a402c87abcbc7e4, type: 2}
@@ -158,15 +158,18 @@ MonoBehaviour:
   - Name: Spawn
     Key: {r: 0, g: 0, b: 1, a: 1}
     tile: {fileID: 1827383836917776, guid: 9ddeea69225bb9448b35c83588275200, type: 2}
-  - Name: Wall1
+  - Name: BrickFloor
     Key: {r: 0, g: 1, b: 0, a: 1}
-    tile: {fileID: 1510169631824388, guid: b3eb11c4493717c45a77e51afc057163, type: 2}
+    tile: {fileID: 1489123924374760, guid: e336e553828e5624d8d463a1882cee32, type: 2}
   - Name: FancyFloor
     Key: {r: 1, g: 1, b: 0, a: 1}
     tile: {fileID: 1600715548520660, guid: 789290d6574ac2143b689cac2cdc4469, type: 2}
-  - Name: Bricks_7
+  - Name: FancyWall
     Key: {r: 0, g: 1, b: 1, a: 1}
     tile: {fileID: 1016212258284686, guid: efabb96e02e3d5141b33bfa69a4bbf67, type: 2}
+  - Name: BrickWall
+    Key: {r: 1, g: 0, b: 1, a: 1}
+    tile: {fileID: 1510169631824388, guid: b3eb11c4493717c45a77e51afc057163, type: 2}
   - Name: test
     Key: {r: 0.6320754, g: 0.6002669, b: 0.16398184, a: 1}
     tile: {fileID: 1016212258284686, guid: efabb96e02e3d5141b33bfa69a4bbf67, type: 2}

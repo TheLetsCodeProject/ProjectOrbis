@@ -11,19 +11,36 @@ namespace Orbis {
             const string FORMAT_OPTION_M = "00";
             const string FORMAT_OPTION_S = "00.00";
 
-            string defaultMinuteFormat = FORMAT_OPTION_M;
-            string defaultSecondFormat = FORMAT_OPTION_S;
+            string m_DefaultMinuteFormat = FORMAT_OPTION_M;
+            string m_defaultSecondFormat = FORMAT_OPTION_S;
 
-            float StartTime;
-            float EndTime;
-            float TotalTime;
+            float m_StartTime;
+            float m_EndTime;
+            float m_TotalTime;
 
-            public bool isStarted = false;
+            private bool isStarted = false;
+            /// <summary>
+            /// Has the timer started.
+            /// </summary>
+            public bool IsStarted { get { return isStarted; }  }
 
+            /// <summary>
+            /// Formating constructor.
+            /// </summary>
+            /// <param name="secondsFormatOption">The formatting settings for 'seconds'</param>
+            /// <param name="minutesFormatOption">The formatting settings for 'minutes'</param>
             public Timer(string secondsFormatOption, string minutesFormatOption)
             {
-                defaultMinuteFormat = minutesFormatOption;
-                defaultSecondFormat = secondsFormatOption;
+                m_DefaultMinuteFormat = minutesFormatOption;
+                m_defaultSecondFormat = secondsFormatOption;
+            }
+
+            /// <summary>
+            /// Default constructor.
+            /// </summary>
+            public Timer()
+            {
+                //Null constructor
             }
 
             /// <summary>
@@ -32,7 +49,7 @@ namespace Orbis {
             public void Start()
             {
                 if (isStarted == false) {
-                    StartTime = Time.time;
+                    m_StartTime = Time.time;
                     isStarted = true;
                 } else {
                     Debug.LogWarning("Timer is already started");
@@ -46,10 +63,10 @@ namespace Orbis {
             public float Stop()
             {
                 if (isStarted) {
-                    EndTime = Time.time;
-                    TotalTime = EndTime - StartTime;
+                    m_EndTime = Time.time;
+                    m_TotalTime = m_EndTime - m_StartTime;
                     isStarted = false;
-                    return TotalTime;
+                    return m_TotalTime;
                 } else {
                     Debug.LogWarning("Timer has not started");
                     return 0f;
@@ -62,9 +79,9 @@ namespace Orbis {
             /// </summary>
             public void Reset()
             {
-                TotalTime = 0;
-                StartTime = 0;
-                EndTime = 0;
+                m_TotalTime = 0;
+                m_StartTime = 0;
+                m_EndTime = 0;
                 isStarted = false;
             }
 
@@ -75,7 +92,7 @@ namespace Orbis {
             /// <returns>formatted time as a string</returns>
             public TimeData FormatTime(float time)
             {
-                return new TimeData(time, defaultSecondFormat, defaultMinuteFormat);
+                return new TimeData(time, m_defaultSecondFormat, m_DefaultMinuteFormat);
             }
 
             public static TimeData FormatTime(float time, string secondsFormatOption, string minutesFormatOption)
@@ -89,7 +106,7 @@ namespace Orbis {
             /// <returns></returns>
             public TimeData GetFormattedTime()
             {
-                return FormatTime(TotalTime);
+                return FormatTime(m_TotalTime);
             }
 
             /// <summary>
@@ -100,13 +117,13 @@ namespace Orbis {
             {
                 if (isStarted) {
                     float currTime = Time.time;
-                    float passed = currTime - StartTime;
+                    float passed = currTime - m_StartTime;
                     float minutes = Mathf.Floor(passed / 60);
                     float seconds = (passed % 60);
 
                     return minutes.ToString("00") + ":" + seconds.ToString("00.00");
                 } else {
-                    return "NULL";
+                    return "00.00";
                 }
 
             }

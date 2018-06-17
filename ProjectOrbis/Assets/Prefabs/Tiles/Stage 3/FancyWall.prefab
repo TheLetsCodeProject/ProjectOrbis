@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212911114060414398}
   - component: {fileID: 61891644884541840}
   m_Layer: 0
-  m_Name: test
+  m_Name: FancyWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

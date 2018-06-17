@@ -129,7 +129,7 @@ namespace Orbis {
             }
         }
 
-
+        [System.Serializable]
         public struct TimeData {
 
             public float Minutes { get; private set; }

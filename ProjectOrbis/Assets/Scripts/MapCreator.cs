@@ -8,12 +8,14 @@ public class MapCreator : MonoBehaviour {
 
     //Creates our prefab dictionary
     private Dictionary<Color, GameObject> objectDictionary = new Dictionary<Color, GameObject>();
+    private Texture2D level;
+    private GameObject Player;
 
+    [Header("Preferences")]
+    public bool DoBreakOnError = false;
+    [Space(10)]
     [Header("Level Settings")]
-    [Tooltip("The level texture to load")]
-    public Texture2D level;
     public GameObject MissingTexture;
-    public GameObject Player;
     public Camera LevelCamera;
 
     [Space(10)]
@@ -29,6 +31,9 @@ public class MapCreator : MonoBehaviour {
             pairs[i].tile.name = pairs[i].Name;
             objectDictionary.Add(pairs[i].Key, pairs[i].tile);
         }
+
+        level = GameManager.ins.MapToLoad;
+        Player = GameManager.ins.Player;
 
     }
 
@@ -49,9 +54,13 @@ public class MapCreator : MonoBehaviour {
                 }
                 else {
                     GameObject go = Instantiate(MissingTexture, new Vector2(x, y), Quaternion.identity, transform);
-                    go.name += string.Format(" ({0}, {1})", x, y);
+                    go.name += string.Format("MissingTexture ({0}, {1})", x, y);
                     Debug.LogWarning(string.Format("Tile could not be found (tile at {0}, {1})", x, y) + string.Format("R: {0} G: {1} B: {2}", col.r * 255, col.g * 255, col.b * 255));
-                    Debug.Break();
+                    if (DoBreakOnError) {
+
+                        Debug.Break();
+                    }
+                  
                 }
 
             }
@@ -67,7 +76,6 @@ public class MapCreator : MonoBehaviour {
         int Index = Random.Range(0, SpawnNodes.Length);
         Vector2 position = SpawnNodes[Index].transform.position + new Vector3(0.5f, 0.5f);
         Instantiate(Player, position, Quaternion.identity);
-
         LevelCamera.gameObject.SetActive(false);
     
     }

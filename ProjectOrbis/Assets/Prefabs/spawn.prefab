@@ -20,8 +20,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4288032316590162}
   - component: {fileID: 212184702677734820}
+  - component: {fileID: 114683906152945628}
+  - component: {fileID: 61703956071316552}
   m_Layer: 0
-  m_Name: Spawn
+  m_Name: spawn
   m_TagString: SpawnNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -40,6 +42,42 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &61703956071316552
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1827383836917776}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.5, y: 0.5}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!114 &114683906152945628
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1827383836917776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70c320bef59ce67439bf7e254f756e28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212184702677734820
 SpriteRenderer:
   m_ObjectHideFlags: 1

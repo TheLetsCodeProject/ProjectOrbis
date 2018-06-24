@@ -12,7 +12,7 @@ public class MapCreator : MonoBehaviour {
     private GameObject Player;
 
     [Header("Preferences")]
-    public bool DoBreakOnError = false;
+    public bool DoBreakOnError = false; //Does the user want an editor break on error
     [Space(10)]
     [Header("Level Settings")]
     public GameObject MissingTexture;
@@ -27,6 +27,7 @@ public class MapCreator : MonoBehaviour {
     // Use this for initialization
     void Awake()
     {
+        //Parses our inspector list to a dictionary
         for (int i = 0; i < pairs.Length; i++) {
             pairs[i].tile.name = pairs[i].Name;
             objectDictionary.Add(pairs[i].Key, pairs[i].tile);
@@ -42,7 +43,8 @@ public class MapCreator : MonoBehaviour {
         #region Level Generation
         int width = level.width;
         int height = level.height;
-
+        
+        //Loops through all pixels in level texture
         for (int x = 0; x < width; x++) {
             for (int y = 0; y < height; y++) {
 
@@ -56,13 +58,11 @@ public class MapCreator : MonoBehaviour {
                     GameObject go = Instantiate(MissingTexture, new Vector2(x, y), Quaternion.identity, transform);
                     go.name += string.Format("MissingTexture ({0}, {1})", x, y);
                     Debug.LogWarning(string.Format("Tile could not be found (tile at {0}, {1})", x, y) + string.Format("R: {0} G: {1} B: {2}", col.r * 255, col.g * 255, col.b * 255));
-                    if (DoBreakOnError) {
-
-                        Debug.Break();
-                    }
                   
+                    if (DoBreakOnError) {
+                        Debug.Break();
+                    }                
                 }
-
             }
         }
         #endregion
@@ -71,13 +71,15 @@ public class MapCreator : MonoBehaviour {
         if(SpawnNodes.Length == 0) {
             Debug.LogError("No spawn node was found, have you forgotten to add one");
             return;
-        }
-
+        }    
+        SpawnPlayer();
+    }
+    
+    private void SpawnPlayer() {
         int Index = Random.Range(0, SpawnNodes.Length);
         Vector2 position = SpawnNodes[Index].transform.position + new Vector3(0.5f, 0.5f);
         Instantiate(Player, position, Quaternion.identity);
         LevelCamera.gameObject.SetActive(false);
-    
     }
 }
 

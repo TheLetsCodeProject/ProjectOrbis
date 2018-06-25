@@ -12,3 +12,4 @@ Our first foray into the world of game development!
 
 # Links
 [Maze Generator](http://hereandabove.com/maze/mazeorig.form.html)
+[Maze Converter](https://www.browserling.com/tools/gif-to-png)

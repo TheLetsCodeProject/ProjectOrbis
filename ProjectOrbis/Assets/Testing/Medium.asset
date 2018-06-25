@@ -11,6 +11,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b3802396ccdadc47919edf5cedf7c83, type: 3}
   m_Name: Medium
   m_EditorClassIdentifier: 
-  LevelName: 
-  Difficulty: 0
+  LevelName: Medium
+  Difficulty: 1
   LevelTexture: {fileID: 0}

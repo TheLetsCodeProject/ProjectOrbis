@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour {
     [SerializeField]
     private GameObject m_Player;
     public GameObject Player { get { return m_Player; } }
+    public LevelAsset[] levels;
     #endregion
 
     #region Members

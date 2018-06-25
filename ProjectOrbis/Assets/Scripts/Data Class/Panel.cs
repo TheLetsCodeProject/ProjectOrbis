@@ -25,7 +25,7 @@ public class Panel : MonoBehaviour
         }
         set {
             myLevel = value;
-            InitPanel(value);
+            InitPanel(value); //When value is set, re-initialise the panel UI
         }
     }
 
@@ -34,8 +34,8 @@ public class Panel : MonoBehaviour
     {
         LevelName.text = _level.LevelName;
         
-        //Black magic - The ternery operator is a condensed form of 'if' statement
-        //If you wanna find out more google "C# ternery"
+        /*Black magic - The ternery operator is a condensed form of 'if' statement
+        if you wanna find out more google "C# ternery" */
         Difficulty.text = (_level.Difficulty == DifficultyLevel.Easy ? "Easy" : 
                            _level.Difficulty == DifficultyLevel.Medium ? "Medium" : "Hard");
 
@@ -47,10 +47,8 @@ public class Panel : MonoBehaviour
         } else if (Difficulty.text == "Hard") {
             gameObject.GetComponent<Image>().color = Hard;
         } else { //If there are something horrible has happened and there is no level
-                 // Difficulty default to gray.
+                 // difficulty default to gray.
             gameObject.GetComponent<Image>().color = Color.gray;
         }
     }
-
-
 }

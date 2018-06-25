@@ -10,6 +10,7 @@ public class MapCreator : MonoBehaviour {
     private Dictionary<Color, GameObject> objectDictionary = new Dictionary<Color, GameObject>();
     private Texture2D level;
     private GameObject Player;
+    GameObject[] SpawnNodes;
 
     [Header("Preferences")]
     public bool DoBreakOnError = false; //Does the user want an editor break on error
@@ -67,7 +68,7 @@ public class MapCreator : MonoBehaviour {
         }
         #endregion
 
-        GameObject[] SpawnNodes = GameObject.FindGameObjectsWithTag("SpawnNode");
+        SpawnNodes = GameObject.FindGameObjectsWithTag("SpawnNode");
         if(SpawnNodes.Length == 0) {
             Debug.LogError("No spawn node was found, have you forgotten to add one");
             return;

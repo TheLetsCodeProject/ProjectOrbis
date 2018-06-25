@@ -10,12 +10,13 @@ public class MenuManager : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
+        //Get the levels from game manager
         levels = GameManager.ins.levels;
 
+        //Create a new panel for each level
         for (int i = 0; i < levels.Length; i++) {
-
             GameObject currentPanel = Instantiate(PanelPrefab, ListParent.transform);
-            currentPanel.GetComponent<Panel>().Level = levels[i];
+            currentPanel.GetComponent<Panel>().Level = levels[i]; //Sets the panels level
         }
     }
 }

@@ -5,6 +5,8 @@ using Orbis.Timing;
 
 public class GameManager : MonoBehaviour {
 
+    public TimeData lastTime;
+
     #region Properties
     [SerializeField]
     private Texture2D m_MapToLoad;
@@ -21,8 +23,6 @@ public class GameManager : MonoBehaviour {
 
 
     #endregion
-
-    public TimeData lastTime;
 
     public static GameManager ins;
 

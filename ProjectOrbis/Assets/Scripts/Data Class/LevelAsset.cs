@@ -14,5 +14,5 @@ public class LevelAsset : ScriptableObject {
 }
 
 //Enums just give us a drop down menu in the editor while still acting like numbers.
-public enum DifficultyLevel { Easy = 0, Medium = 1, Hard = 2}
+public enum DifficultyLevel { Easy = 0, Medium = 1, Hard = 2, Extreme = 3}
 

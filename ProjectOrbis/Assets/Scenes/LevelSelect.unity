@@ -432,7 +432,7 @@ Prefab:
     - target: {fileID: 114797345568946606, guid: 25cf02c5609fd9342a876aae335e7280,
         type: 2}
       propertyPath: levels.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4269293270770670, guid: 25cf02c5609fd9342a876aae335e7280, type: 2}
       propertyPath: m_LocalPosition.x
@@ -471,6 +471,12 @@ Prefab:
       propertyPath: levels.Array.data[2]
       value: 
       objectReference: {fileID: 11400000, guid: 1a74e2eb2a88e8a42a13d9a8e94a599e,
+        type: 2}
+    - target: {fileID: 114797345568946606, guid: 25cf02c5609fd9342a876aae335e7280,
+        type: 2}
+      propertyPath: levels.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: ed4395e630e42e147abbd08761e4d5ba,
         type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 25cf02c5609fd9342a876aae335e7280, type: 2}

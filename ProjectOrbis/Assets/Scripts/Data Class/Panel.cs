@@ -30,6 +30,11 @@ public class Panel : MonoBehaviour
         }
     }
 
+    public void PlayButton()
+    {
+        GameManager.ins.LoadLevel(myLevel);
+    }
+
     //Initialises panel using LevelAsset
     private void InitPanel(LevelAsset _level)
     {

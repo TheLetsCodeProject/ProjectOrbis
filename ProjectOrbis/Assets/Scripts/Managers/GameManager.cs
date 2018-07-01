@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Orbis.Timing;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
@@ -9,8 +10,8 @@ public class GameManager : MonoBehaviour {
 
     #region Properties
     [SerializeField]
-    private Texture2D m_MapToLoad;
-    public Texture2D MapToLoad { get { return m_MapToLoad; } }
+    private LevelAsset m_LevelToLoad;
+    public LevelAsset LevelToLoad { get { return m_LevelToLoad; } }
 
     [SerializeField]
     private GameObject m_Player;
@@ -56,6 +57,16 @@ public class GameManager : MonoBehaviour {
             LevelTimer.Stop();
             lastTime = LevelTimer.GetFormattedTime();
         }
+    }
+    public void LoadLevel(LevelAsset level)
+    {
+        if (level == null || level.LevelTexture == null) {
+            Debug.LogError("Incomplete level asset: " + level.name);
+            return;
+        }
+
+        m_LevelToLoad = level;
+        SceneManager.LoadScene("LevelScene");
     }
     #endregion
 

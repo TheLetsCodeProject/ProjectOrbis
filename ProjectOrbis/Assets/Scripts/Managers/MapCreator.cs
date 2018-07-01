@@ -34,7 +34,7 @@ public class MapCreator : MonoBehaviour {
             objectDictionary.Add(pairs[i].Key, pairs[i].tile);
         }
 
-        level = GameManager.ins.MapToLoad;
+        level = GameManager.ins.LevelToLoad.LevelTexture;
         Player = GameManager.ins.Player;
 
     }

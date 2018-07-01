@@ -46,10 +46,10 @@ namespace Orbis {
             /// <summary>
             /// Starts timer.
             /// </summary>
-            public void Start()
+            public void Start(float ElapsedTime = 0f)
             {
                 if (isStarted == false) {
-                    m_StartTime = Time.time;
+                    m_StartTime = Time.time - ElapsedTime;
                     isStarted = true;
                 } else {
                     Debug.LogWarning("Timer is already started");
@@ -118,10 +118,13 @@ namespace Orbis {
                 if (isStarted) {
                     float currTime = Time.time;
                     float passed = currTime - m_StartTime;
-                    float minutes = Mathf.Floor(passed / 60);
+
+                    var _minutesPRECALC = Mathf.Floor(passed/ 60f);
+                    float hours = Mathf.Floor(_minutesPRECALC / 60);
+                    float minutes = Mathf.Floor(_minutesPRECALC % 60);
                     float seconds = (passed % 60);
 
-                    return minutes.ToString("00") + ":" + seconds.ToString("00.00");
+                    return hours.ToString("00") + ":" + minutes.ToString("00") + ":" + seconds.ToString("00.00");
                 } else {
                     return "00.00";
                 }
@@ -132,17 +135,22 @@ namespace Orbis {
         [System.Serializable]
         public struct TimeData {
 
+            public float Hours { get; private set; }
             public float Minutes { get; private set; }
             public float Seconds { get; private set; }
-
+            public float SecondsRaw; 
             public string TimeString;
 
             public TimeData(float seconds, string opt1, string opt2)
             {
-                Minutes = Mathf.Floor(seconds / 60);
+                SecondsRaw = seconds;
+
+                var _minutesPRECALC = Mathf.Floor(seconds / 60f);
+                Hours = Mathf.Floor(_minutesPRECALC / 60);
+                Minutes = Mathf.Floor(_minutesPRECALC % 60);
                 Seconds = (seconds % 60);
 
-                TimeString = Minutes.ToString(opt2) + ":" + Seconds.ToString(opt1);
+                TimeString = Hours.ToString("00") + ":" + Minutes.ToString(opt2) + ":" + Seconds.ToString(opt1);
             }
 
             public static implicit operator string(TimeData t)

@@ -9,8 +9,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6b3802396ccdadc47919edf5cedf7c83, type: 3}
-  m_Name: Test One
+  m_Name: Hard Test
   m_EditorClassIdentifier: 
-  LevelName: Hello World
-  Difficulty: 0
+  LevelName: Hard
+  Difficulty: 2
   LevelTexture: {fileID: 0}

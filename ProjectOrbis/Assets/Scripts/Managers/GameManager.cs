@@ -8,14 +8,21 @@ public class GameManager : MonoBehaviour {
 
     public TimeData lastTime;
 
+
     #region Properties
     [SerializeField]
     private LevelAsset m_LevelToLoad;
     public LevelAsset LevelToLoad { get { return m_LevelToLoad; } }
 
     [SerializeField]
+    private GameObject WinScreen;
+    
+
+    [SerializeField]
     private GameObject m_Player;
-    public GameObject Player { get { return m_Player; } }
+    public GameObject Player { get {
+            m_Player.SetActive(true);
+            return m_Player; } }
     public LevelAsset[] levels;
     #endregion
 
@@ -56,7 +63,12 @@ public class GameManager : MonoBehaviour {
         if (LevelTimer.IsStarted) {
             LevelTimer.Stop();
             lastTime = LevelTimer.GetFormattedTime();
+            
         }
+        m_Player.SetActive(false);
+        Instantiate(WinScreen);
+
+
     }
     public void LoadLevel(LevelAsset level)
     {

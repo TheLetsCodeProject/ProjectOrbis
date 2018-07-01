@@ -6,6 +6,8 @@ using UnityEngine;
 public class LevelAsset : ScriptableObject {
 
     public string LevelName;
+    public string PublicKey;
+    public string PrivateKey;
 
     [Tooltip("0: Easy, 1: Medium, 2: Hard")]
     public DifficultyLevel Difficulty;

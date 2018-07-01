@@ -52,8 +52,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lastTime:
+    SecondsRaw: 0
     TimeString: 
   m_LevelToLoad: {fileID: 11400000, guid: 0e11d3789e934a04a8e7f105cc7d6f32, type: 2}
+  WinScreen: {fileID: 1608355518787590, guid: 6079e08bb5c4900488b89ee84c72aa5f, type: 2}
   m_Player: {fileID: 1156104910512566, guid: 7d725aca001d43249a402c87abcbc7e4, type: 2}
   levels:
   - {fileID: 11400000, guid: 0e11d3789e934a04a8e7f105cc7d6f32, type: 2}

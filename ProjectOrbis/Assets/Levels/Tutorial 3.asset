@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Name: Tutorial 3
   m_EditorClassIdentifier: 
   LevelName: Tutorial Pt.3
+  PublicKey: 5b39d4a6191a8a0bccdd8357
+  PrivateKey: TynHXOL8IEOxx-v_T4PqNgwPxLR4fA9kSnQ5ISh0zMdQ
   Difficulty: 0
   LevelTexture: {fileID: 2800000, guid: 546d7532b0e5a174b8c7b9b4f436fd98, type: 3}

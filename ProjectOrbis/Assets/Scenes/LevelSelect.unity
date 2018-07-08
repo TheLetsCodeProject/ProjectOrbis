@@ -432,7 +432,7 @@ Prefab:
     - target: {fileID: 114797345568946606, guid: 25cf02c5609fd9342a876aae335e7280,
         type: 2}
       propertyPath: levels.Array.size
-      value: 4
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4269293270770670, guid: 25cf02c5609fd9342a876aae335e7280, type: 2}
       propertyPath: m_LocalPosition.x
@@ -477,6 +477,42 @@ Prefab:
       propertyPath: levels.Array.data[3]
       value: 
       objectReference: {fileID: 11400000, guid: ed4395e630e42e147abbd08761e4d5ba,
+        type: 2}
+    - target: {fileID: 114797345568946606, guid: 25cf02c5609fd9342a876aae335e7280,
+        type: 2}
+      propertyPath: levels.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: e7fe306f124c3f3488cc4e6eff35b104,
+        type: 2}
+    - target: {fileID: 114797345568946606, guid: 25cf02c5609fd9342a876aae335e7280,
+        type: 2}
+      propertyPath: levels.Array.data[5]
+      value: 
+      objectReference: {fileID: 11400000, guid: 412b827c1550f1d48b54522c042cf867,
+        type: 2}
+    - target: {fileID: 114797345568946606, guid: 25cf02c5609fd9342a876aae335e7280,
+        type: 2}
+      propertyPath: levels.Array.data[6]
+      value: 
+      objectReference: {fileID: 11400000, guid: 4497dc14d57f2c644b5d956b9dd18ed9,
+        type: 2}
+    - target: {fileID: 114797345568946606, guid: 25cf02c5609fd9342a876aae335e7280,
+        type: 2}
+      propertyPath: levels.Array.data[7]
+      value: 
+      objectReference: {fileID: 11400000, guid: 5e854bf282fd96845836a09366112970,
+        type: 2}
+    - target: {fileID: 114797345568946606, guid: 25cf02c5609fd9342a876aae335e7280,
+        type: 2}
+      propertyPath: levels.Array.data[8]
+      value: 
+      objectReference: {fileID: 11400000, guid: 41b51d86b5ab4484bad11ab8a36f3544,
+        type: 2}
+    - target: {fileID: 114797345568946606, guid: 25cf02c5609fd9342a876aae335e7280,
+        type: 2}
+      propertyPath: levels.Array.data[9]
+      value: 
+      objectReference: {fileID: 11400000, guid: df242c832b203d949ad799c8ac85ecd1,
         type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 25cf02c5609fd9342a876aae335e7280, type: 2}
@@ -1124,7 +1160,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

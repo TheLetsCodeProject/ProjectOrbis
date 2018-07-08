@@ -15,6 +15,11 @@ public class GameManager : MonoBehaviour {
     public LevelAsset LevelToLoad { get { return m_LevelToLoad; } }
 
     [SerializeField]
+    private string m_username = "anonymous";
+    public string Username { get { return m_username; } set { m_username = value; } }
+
+
+    [SerializeField]
     private GameObject WinScreen;
     
 
@@ -39,12 +44,13 @@ public class GameManager : MonoBehaviour {
         if (ins == null) {
             ins = this;
         } else {
-            Destroy(this);
+            Destroy(this.gameObject);
             Debug.Log("Deleted existing GameManager");
 
         }
 
         DontDestroyOnLoad(this.gameObject);
+
     }
 
 

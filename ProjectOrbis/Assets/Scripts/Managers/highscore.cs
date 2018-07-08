@@ -24,13 +24,21 @@ public class highscore : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-
+        
         scoreboard.CallBack += DisplayHighscores;
-        scoreboard.AddScore("yaboi", 60);
+        scoreboard.AddScore(GameManager.ins.Username, (int)GameManager.ins.lastTime.SecondsRaw);
         scoreboard.DownloadScores();
+        StartCoroutine("RefreshScore");
 		
 	}
 	
+    IEnumerator RefreshScore()
+    {
+        while(true) {
+            scoreboard.DownloadScores();
+            yield return new WaitForSeconds(5f);
+        }
+    }
 	
 
     public void DisplayHighscores(List<ScoreData> data)

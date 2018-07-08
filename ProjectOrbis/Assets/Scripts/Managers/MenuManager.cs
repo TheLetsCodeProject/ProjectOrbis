@@ -19,4 +19,9 @@ public class MenuManager : MonoBehaviour {
             currentPanel.GetComponent<Panel>().Level = levels[i]; //Sets the panels level
         }
     }
+
+    public void UpdateName(string name)
+    {
+        GameManager.ins.Username = name;
+    }
 }

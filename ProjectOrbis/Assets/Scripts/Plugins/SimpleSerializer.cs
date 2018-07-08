@@ -19,5 +19,40 @@ public static class SimpleSerializer
         return int.Parse(result);
     }
 
+    public static void SaveVector(string key, Vector2 value) {
+
+        string PATH = Application.streamingAssetsPath + "/" + key + ".txt";
+        string[] data = new string[2];
+        data[0] = value.x.ToString();
+        data[1] = value.y.ToString();
+        File.WriteAllLines(PATH, data);
+    }
+
+    public static Vector2 LoadVector(string key)
+    {
+        string PATH = Application.streamingAssetsPath + "/" + key + ".txt";
+        string[] data = File.ReadAllLines(PATH);
+        float x = float.Parse(data[0]);
+        float y = float.Parse(data[1]);
+
+        return new Vector2(x, y);
+    }
+
+    public static bool IsFirstLoad()
+    {
+        if (File.Exists(Application.streamingAssetsPath + "/log.q")) {
+
+            return false;
+        }
+        else {
+
+            File.Create(Application.streamingAssetsPath + "/log.q");
+
+            return true;
+        }
+
+   
+    }
+
 
 }

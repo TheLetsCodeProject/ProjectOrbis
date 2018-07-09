@@ -23,7 +23,6 @@ public class highscore : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
         
         scoreboard.CallBack += DisplayHighscores;
         scoreboard.AddScore(GameManager.ins.Username, (int)GameManager.ins.lastTime.SecondsRaw);
@@ -50,6 +49,7 @@ public class highscore : MonoBehaviour {
             } else {
                 string time = Timer.FormatTime(data[i].Seconds, "00", "00");
                 Cards[i].text = data[i].Username + " - " + time;
+                Debug.Log(time);
             }
 
         }

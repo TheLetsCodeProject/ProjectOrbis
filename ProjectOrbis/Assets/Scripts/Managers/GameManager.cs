@@ -50,6 +50,7 @@ public class GameManager : MonoBehaviour {
         }
 
         DontDestroyOnLoad(this.gameObject);
+        Debug.Log(SimpleSerializer.IsFirstLoad());
 
     }
 

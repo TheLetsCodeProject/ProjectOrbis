@@ -5,6 +5,9 @@ using System.IO;
 
 public static class SimpleSerializer
 {
+    public static string ROOT = Application.dataPath + "/../";
+    public static string PERSISTENT = Application.streamingAssetsPath;
+    public static string SAVE = ROOT + "/Save";
 
     public static void SaveInt(string key, int value)
     {
@@ -41,18 +44,11 @@ public static class SimpleSerializer
     public static bool IsFirstLoad()
     {
         if (File.Exists(Application.streamingAssetsPath + "/log.q")) {
-
             return false;
         }
         else {
-
             File.Create(Application.streamingAssetsPath + "/log.q");
-
             return true;
         }
-
-   
     }
-
-
 }

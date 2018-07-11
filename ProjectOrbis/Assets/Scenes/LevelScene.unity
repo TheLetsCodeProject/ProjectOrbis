@@ -219,8 +219,14 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4269293270770670, guid: 25cf02c5609fd9342a876aae335e7280, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114797345568946606, guid: 25cf02c5609fd9342a876aae335e7280,
+        type: 2}
+      propertyPath: m_LevelToLoad
+      value: 
+      objectReference: {fileID: 11400000, guid: 9f7c99beab0172340bd95be8dfc87075,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 25cf02c5609fd9342a876aae335e7280, type: 2}
   m_IsPrefabParent: 0
@@ -378,5 +384,5 @@ Transform:
   m_Children:
   - {fileID: 1831463616}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

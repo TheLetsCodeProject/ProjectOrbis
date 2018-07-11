@@ -16,6 +16,10 @@ public class PlayerMove : MonoBehaviour
         //Get components and set them to our variables
         anim = GetComponent<Animator>();
         rb2d = GetComponent<Rigidbody2D>();
+
+        if (SimpleSerializer.dev["--speed"]) {
+            speed = float.Parse(SimpleSerializer.dev.GetEnvar("speed"));
+        }
     }
 
     // Update is called once per frame

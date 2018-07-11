@@ -9,6 +9,8 @@ public static class SimpleSerializer
     public static string PERSISTENT = Application.streamingAssetsPath;
     public static string SAVE = ROOT + "/Save";
 
+    public static DevTools dev = new DevTools();
+
     public static void SaveInt(string key, int value)
     {
         string PATH = Application.streamingAssetsPath + "/" + key + ".txt";

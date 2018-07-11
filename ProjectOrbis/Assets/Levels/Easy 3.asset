@@ -9,10 +9,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6b3802396ccdadc47919edf5cedf7c83, type: 3}
-  m_Name: Tutorial
+  m_Name: Easy 3
   m_EditorClassIdentifier: 
-  LevelName: Tutorial
-  PublicKey: 5b3870dd191a8a0bccd7b415
-  PrivateKey: wq1FOwp7F06uI1EkmS6YDw_SehFdOBmU296dw9LkH5Iw
+  LevelName: Tutorial Pt.3
+  PublicKey: 5b39d4a6191a8a0bccdd8357
+  PrivateKey: TynHXOL8IEOxx-v_T4PqNgwPxLR4fA9kSnQ5ISh0zMdQ
   Difficulty: 0
-  LevelTexture: {fileID: 2800000, guid: eff4942092bb5f9448b5c24419c125a9, type: 3}
+  LevelTexture: {fileID: 2800000, guid: d9772b59dd689a34cb6d79b666804afb, type: 3}

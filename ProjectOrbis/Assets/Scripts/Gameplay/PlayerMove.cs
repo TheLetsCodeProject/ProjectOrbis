@@ -31,9 +31,9 @@ public class PlayerMove : MonoBehaviour
     {
         #region Movement Engine
 
-        //Use Input class to calculate movement vectors, Round these floats for snappy control
-        float xMove = Mathf.Round(Input.GetAxis("Horizontal"));
-        float yMove = Mathf.Round(Input.GetAxis("Vertical"));
+        //Use Input class to calculate movement vectors
+        float xMove = Input.GetAxis("Horizontal");
+        float yMove = Input.GetAxis("Vertical");
         Vector2 movement = new Vector2(xMove, yMove);
 
         // Applies movement, no need for Time.deltaTime (physics engine frame smooths for us)

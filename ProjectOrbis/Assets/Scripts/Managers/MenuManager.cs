@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MenuManager : MonoBehaviour {
 
-    LevelAsset[] levels;
+    List<LevelAsset> levels;
     public GameObject PanelPrefab;
     public GameObject ListParent;
     // Use this for initialization
@@ -14,7 +14,7 @@ public class MenuManager : MonoBehaviour {
         levels = GameManager.ins.levels;
 
         //Create a new panel for each level
-        for (int i = 0; i < levels.Length; i++) {
+        for (int i = 0; i < levels.Count; i++) {
             GameObject currentPanel = Instantiate(PanelPrefab, ListParent.transform);
             currentPanel.GetComponent<Panel>().Level = levels[i]; //Sets the panels level
         }

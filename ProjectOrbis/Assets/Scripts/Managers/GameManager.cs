@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour {
     public GameObject Player { get {
             m_Player.SetActive(true);
             return m_Player; } }
-    public LevelAsset[] levels;
+    public List<LevelAsset> levels;
     #endregion
 
     #region Members
@@ -52,6 +52,13 @@ public class GameManager : MonoBehaviour {
         DontDestroyOnLoad(this.gameObject);
         Debug.Log(SimpleSerializer.IsFirstLoad());
 
+        if (Environment.GetFlag("--demo")) {
+
+            List<LevelAsset> demoLevels = LevelFactory.ConstructFromFolder(Environment.GetPath("demo"));
+            for (int i = 0; i < demoLevels.Count; i++) {
+                levels.Insert(0, demoLevels[i]);
+            }
+        }
     }
 
 

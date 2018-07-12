@@ -13,6 +13,14 @@ public class LevelAsset : ScriptableObject {
     public DifficultyLevel Difficulty;
     public Texture2D LevelTexture;
 
+    public LevelAsset(string name, DifficultyLevel difficulty, Texture2D map)
+    {
+        LevelName = name;
+        Difficulty = difficulty;
+        LevelTexture = map;
+    }
+
+    public LevelAsset() { }
 }
 
 //Enums just give us a drop down menu in the editor while still acting like numbers.

@@ -17,8 +17,8 @@ public class PlayerMove : MonoBehaviour
         anim = GetComponent<Animator>();
         rb2d = GetComponent<Rigidbody2D>();
 
-        if (SimpleSerializer.dev["--speed"]) {
-            speed = float.Parse(SimpleSerializer.dev.GetEnvar("speed"));
+        if (SimpleSerializer.env["--speed"]) {
+            speed = float.Parse(SimpleSerializer.env.GetEnvar("speed"));
         }
     }
 

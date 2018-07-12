@@ -11,6 +11,7 @@ public class DevTools {
 
     private Dictionary<string, string> EnvironmentVariables = new Dictionary<string, string>();
     private Dictionary<string, bool> FlagDict = new Dictionary<string, bool>();
+    private Dictionary<string, string> Paths = new Dictionary<string, string>();
 
     public DevTools()
     {
@@ -26,12 +27,19 @@ public class DevTools {
 
             for (int i = 0; i < AllLines.Length; i++) {
                 string[] args = AllLines[i].Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-                if (args[0] == "flag") {
-                    FlagDict.Add(args[1], Convert.ToBoolean(args[2]));
-                    Debug.Log("[DEVTOOLS]: " + FlagDict[args[1]].ToString());
-                } else if (args[0] == "envar") {
-                    EnvironmentVariables.Add(args[1], args[2]);
+                if(args.Length > 0) {
+                    if (args[0] == "flag") {
+                        FlagDict.Add(args[1], Convert.ToBoolean(args[2]));
+                    }
+                    else if (args[0] == "envar") {
+                        EnvironmentVariables.Add(args[1], args[2]);
+                    }
+                    else if (args[0] == "path") {
+                        string path_ = Regex.Replace(args[2], "PERSISTENT", SimpleSerializer.PERSISTENT);
+                        Paths.Add(args[1], path_);
+                    }
                 }
+
             }
         }
     }
@@ -42,6 +50,11 @@ public class DevTools {
             return EnvironmentVariables[varName];
         }
         else return "";
+    }
+
+    public string GetPath(string pathName)
+    {
+        return Paths[pathName];
     }
 
     public bool this[string flag] {

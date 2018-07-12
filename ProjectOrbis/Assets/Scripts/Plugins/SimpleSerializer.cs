@@ -10,7 +10,7 @@ public static class SimpleSerializer
     public static string PERSISTENT = Application.streamingAssetsPath;
     public static string SAVE = ROOT + "/Save";
 
-    public static DevTools env = new DevTools();
+    public static Environment Env = new Environment("game.config");
     #endregion
 
     public static void SaveInt(string key, int value)
@@ -47,11 +47,11 @@ public static class SimpleSerializer
 
     public static bool IsFirstLoad()
     {
-        if (File.Exists(env.GetPath("bin") + "/log.q")) {
+        if (File.Exists(Environment.GetPath("bin") + "/loc.q")) {
             return false;
         }
         else {
-            File.Create(env.GetPath("bin") + "/log.q");
+            File.Create(Environment.GetPath("bin") + "/loc.q");
             return true;
         }
     }

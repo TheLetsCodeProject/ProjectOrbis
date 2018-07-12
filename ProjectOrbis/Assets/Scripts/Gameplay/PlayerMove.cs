@@ -17,8 +17,12 @@ public class PlayerMove : MonoBehaviour
         anim = GetComponent<Animator>();
         rb2d = GetComponent<Rigidbody2D>();
 
-        if (SimpleSerializer.env["--speed"]) {
-            speed = float.Parse(SimpleSerializer.env.GetEnvar("speed"));
+        if (Environment.GetFlag("--speed")) {
+            speed = Environment.GetEnvar("speed");
+        } 
+
+        if (Environment.GetFlag("wallhack")) {
+            GetComponent<CapsuleCollider2D>().enabled = false;
         }
     }
 

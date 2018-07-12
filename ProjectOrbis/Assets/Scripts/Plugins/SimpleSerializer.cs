@@ -5,11 +5,13 @@ using System.IO;
 
 public static class SimpleSerializer
 {
+    #region paths
     public static string ROOT = Application.dataPath + "/../";
     public static string PERSISTENT = Application.streamingAssetsPath;
     public static string SAVE = ROOT + "/Save";
 
-    public static DevTools dev = new DevTools();
+    public static Environment Env = new Environment("game.config");
+    #endregion
 
     public static void SaveInt(string key, int value)
     {
@@ -45,11 +47,11 @@ public static class SimpleSerializer
 
     public static bool IsFirstLoad()
     {
-        if (File.Exists(Application.streamingAssetsPath + "/log.q")) {
+        if (File.Exists(Environment.GetPath("bin") + "/loc.q")) {
             return false;
         }
         else {
-            File.Create(Application.streamingAssetsPath + "/log.q");
+            File.Create(Environment.GetPath("bin") + "/loc.q");
             return true;
         }
     }

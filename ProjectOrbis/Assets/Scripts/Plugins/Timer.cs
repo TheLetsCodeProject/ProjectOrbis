@@ -126,7 +126,7 @@ namespace Orbis {
 
                     return hours.ToString("00") + ":" + minutes.ToString("00") + ":" + seconds.ToString("00.00");
                 } else {
-                    return "00.00";
+                    return "00:00:00.00";
                 }
 
             }

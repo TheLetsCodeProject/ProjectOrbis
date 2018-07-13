@@ -82,6 +82,11 @@ public class MapCreator : MonoBehaviour {
         Instantiate(Player, position, Quaternion.identity);
         LevelCamera.gameObject.SetActive(false);
     }
+
+    public void LoadScene(string name)
+    {
+        GameManager.ins.LoadScene(name);
+    }
 }
 
 namespace Orbis { namespace Data {

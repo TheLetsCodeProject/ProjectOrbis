@@ -15,20 +15,32 @@ public static class SimpleSerializer
 
     public static void SaveInt(string key, int value)
     {
-        string PATH = Application.streamingAssetsPath + "/" + key + ".txt";
+        string PATH = Environment.GetPath("save") + "/" + key + ".txt";
         File.WriteAllText(PATH, value.ToString());
     }
 
     public static int LoadInt(string key)
     {
-        string PATH = Application.streamingAssetsPath + "/" + key + ".txt";
+        string PATH = Environment.GetPath("save") + "/" + key + ".txt";
         string result = File.ReadAllText(PATH);
         return int.Parse(result);
     }
 
+    public static void SaveString(string key, string value)
+    {
+        string PATH = Environment.GetPath("save") + "/" + key + ".txt";
+        File.WriteAllText(PATH, value);
+    }
+
+    public static string LoadString(string key)
+    {
+        string PATH = Environment.GetPath("save") + "/" + key + ".txt";
+        return File.ReadAllText(PATH);
+    }
+
     public static void SaveVector(string key, Vector2 value) {
 
-        string PATH = Application.streamingAssetsPath + "/" + key + ".txt";
+        string PATH = Environment.GetPath("save") + "/" + key + ".txt";
         string[] data = new string[2];
         data[0] = value.x.ToString();
         data[1] = value.y.ToString();
@@ -37,7 +49,7 @@ public static class SimpleSerializer
 
     public static Vector2 LoadVector(string key)
     {
-        string PATH = Application.streamingAssetsPath + "/" + key + ".txt";
+        string PATH = Environment.GetPath("save") + "/" + key + ".txt";
         string[] data = File.ReadAllLines(PATH);
         float x = float.Parse(data[0]);
         float y = float.Parse(data[1]);

@@ -1976,3 +1976,4 @@ MonoBehaviour:
   PanelPrefab: {fileID: 1378889858257896, guid: 361152bf89f12f14cb00e66b418dfd37,
     type: 2}
   ListParent: {fileID: 87543754}
+  placeholder: {fileID: 1206961319}

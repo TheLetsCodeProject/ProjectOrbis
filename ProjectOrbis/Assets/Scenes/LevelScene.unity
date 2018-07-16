@@ -148,13 +148,13 @@ MonoBehaviour:
   - Name: Crate
     Key: {r: 0, g: 0, b: 0, a: 1}
     tile: {fileID: 1558756583262464, guid: 7e1ef828005521e4f89212cfb6b058fb, type: 2}
-  - Name: Stone Floor
+  - Name: Basic Floor
     Key: {r: 1, g: 1, b: 1, a: 1}
     tile: {fileID: 1373220666053536, guid: 433a14ba1b993ed40a656e7375705df4, type: 2}
   - Name: EndNode
     Key: {r: 1, g: 0, b: 0, a: 1}
     tile: {fileID: 1653326839865794, guid: bfd9ff40c849173458e99ac040ceeaa3, type: 2}
-  - Name: Spawn
+  - Name: spawn
     Key: {r: 0, g: 0, b: 1, a: 1}
     tile: {fileID: 1827383836917776, guid: 9ddeea69225bb9448b35c83588275200, type: 2}
   - Name: BrickFloor

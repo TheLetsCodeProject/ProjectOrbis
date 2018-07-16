@@ -15,4 +15,4 @@ MonoBehaviour:
   PublicKey: 5b39d5b1191a8a0bccdd860b
   PrivateKey: NYFbnrq5gkCGzUXnSrEPaw8XXsZ_B6AkGjz8x_wEAJKg
   Difficulty: 1
-  LevelTexture: {fileID: 2800000, guid: 3fe2365fe3d07ab4589884e246c557a6, type: 3}
+  LevelTexture: {fileID: 2800000, guid: 3c0511c6ef1bcb74291b0413b71c4ab5, type: 3}

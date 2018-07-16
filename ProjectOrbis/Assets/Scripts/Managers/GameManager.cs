@@ -63,6 +63,11 @@ public class GameManager : MonoBehaviour {
 
         if (Environment.GetFlag("--demo")) {
 
+            List<LevelAsset> OLDdemoLevels = LevelFactory.ConstructFromFolderCONFIG(Environment.GetPath("demo"));
+            for (int i = 0; i < OLDdemoLevels.Count; i++) {
+                levels.Insert(0, OLDdemoLevels[i]);
+            }
+
             List<LevelAsset> demoLevels = LevelFactory.ConstructFromFolder(Environment.GetPath("demo"));
             for (int i = 0; i < demoLevels.Count; i++) {
                 levels.Insert(0, demoLevels[i]);
@@ -73,10 +78,8 @@ public class GameManager : MonoBehaviour {
             m_username = SimpleSerializer.LoadString("Username");
         }
         else m_username = "anonymous";
-
         
     }
-
 
     #region Logic
 

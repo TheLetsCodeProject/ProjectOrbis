@@ -22,8 +22,13 @@ public static class SimpleSerializer
     public static int LoadInt(string key)
     {
         string PATH = Environment.GetPath("save") + "/" + key + ".txt";
-        string result = File.ReadAllText(PATH);
-        return int.Parse(result);
+        if (File.Exists(PATH))
+        {
+            string result = File.ReadAllText(PATH);
+            return int.Parse(result);
+        }
+        else return 0;
+
     }
 
     public static void SaveString(string key, string value)
@@ -35,7 +40,12 @@ public static class SimpleSerializer
     public static string LoadString(string key)
     {
         string PATH = Environment.GetPath("save") + "/" + key + ".txt";
-        return File.ReadAllText(PATH);
+        if (File.Exists(PATH))
+        {
+            return File.ReadAllText(PATH);
+        }
+        else return "";
+        
     }
 
     public static void SaveVector(string key, Vector2 value) {
@@ -50,11 +60,16 @@ public static class SimpleSerializer
     public static Vector2 LoadVector(string key)
     {
         string PATH = Environment.GetPath("save") + "/" + key + ".txt";
-        string[] data = File.ReadAllLines(PATH);
-        float x = float.Parse(data[0]);
-        float y = float.Parse(data[1]);
+        if (File.Exists(PATH))
+        {
+            string[] data = File.ReadAllLines(PATH);
+            float x = float.Parse(data[0]);
+            float y = float.Parse(data[1]);
 
-        return new Vector2(x, y);
+            return new Vector2(x, y);
+        }
+        else return Vector2.zero;
+
     }
 
     public static bool IsFirstLoad()

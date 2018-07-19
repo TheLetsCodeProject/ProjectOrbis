@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour {
 
     public TimeData lastTime;
 
+    private bool GameStarted = false;
 
     #region Properties
     [SerializeField]
@@ -62,20 +63,24 @@ public class GameManager : MonoBehaviour {
         DontDestroyOnLoad(this.gameObject);
         Debug.Log(SimpleSerializer.IsFirstLoad());
 
-        if (Environment.GetFlag("--demo")) {
+        if (Environment.GetFlag("--demo"))
+        {
 
             List<LevelAsset> OLDdemoLevels = LevelFactory.ConstructFromFolderCONFIG(Environment.GetPath("demo"));
-            for (int i = 0; i < OLDdemoLevels.Count; i++) {
+            for (int i = 0; i < OLDdemoLevels.Count; i++)
+            {
                 levels.Insert(0, OLDdemoLevels[i]);
             }
 
             List<LevelAsset> demoLevels = LevelFactory.ConstructFromFolder(Environment.GetPath("demo"));
-            for (int i = 0; i < demoLevels.Count; i++) {
+            for (int i = 0; i < demoLevels.Count; i++)
+            {
                 levels.Insert(0, demoLevels[i]);
             }
         }
 
-        foreach (LevelAsset level in levels) {
+        foreach (LevelAsset level in levels)
+        {
             level.LevelData = ConstructSaveData(level.SaveKey);
         }
 
@@ -92,8 +97,11 @@ public class GameManager : MonoBehaviour {
 
     public void StartGame()
     {
-        Debug.Log("Map Started");
-        LevelTimer.Start(m_LevelToLoad.LevelData.SaveTime);
+        if(!GameStarted)
+        {
+            Debug.Log("Map Started");
+            LevelTimer.Start(m_LevelToLoad.LevelData.SaveTime);
+        }
 
     }
 
@@ -107,7 +115,7 @@ public class GameManager : MonoBehaviour {
         }
         m_Player.SetActive(false);
         Instantiate(WinScreen);
-
+        ResetData(m_LevelToLoad);
     }
 
     public void LoadLevel(LevelAsset level)
@@ -117,10 +125,17 @@ public class GameManager : MonoBehaviour {
             Debug.LogError("Incomplete level asset: " + level.name);
             return;
         }
-
+        GameStarted = false;
         m_LevelToLoad = level;
         SceneManager.LoadScene("LevelScene");
 
+    }
+
+    public void ResetData(LevelAsset level)
+    {
+        ClearSaveData(level);
+        level.LevelData.SaveTime = 0f;
+        level.LevelData.Offset = Vector2.zero;
     }
 
     public void ClearSaveData(LevelAsset level)

@@ -31,6 +31,23 @@ public static class SimpleSerializer
 
     }
 
+    public static void SaveFloat(string key, float value)
+    {
+        string PATH = Environment.GetPath("save") + "/" + key + ".txt";
+        File.WriteAllText(PATH, value.ToString());
+    }
+
+    public static float LoadFloat(string key)
+    {
+        string PATH = Environment.GetPath("save") + "/" + key + ".txt";
+        if (File.Exists(PATH)) {
+            string result = File.ReadAllText(PATH);
+            return float.Parse(result);
+        }
+        else return 0f;
+
+    }
+
     public static void SaveString(string key, string value)
     {
         string PATH = Environment.GetPath("save") + "/" + key + ".txt";
@@ -81,5 +98,12 @@ public static class SimpleSerializer
             File.Create(Environment.GetPath("bin") + "/loc.q");
             return true;
         }
+    }
+}
+ 
+public static class util {
+    public static Vector2 Minus(this Vector2 vector, Vector2 other)
+    {
+        return new Vector2(vector.x - other.x, vector.y - other.y);
     }
 }

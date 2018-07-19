@@ -8,8 +8,10 @@ public class MapCreator : MonoBehaviour {
 
     //Creates our prefab dictionary
     private Dictionary<Color, GameObject> objectDictionary = new Dictionary<Color, GameObject>();
-    private Texture2D level;
+    private LevelAsset level;
     private GameObject Player;
+    private GameObject PlayerCopy;
+    private Vector2 spawnPos;
     GameObject[] SpawnNodes;
 
     [Header("Preferences")]
@@ -34,7 +36,7 @@ public class MapCreator : MonoBehaviour {
             objectDictionary.Add(pairs[i].Key, pairs[i].tile);
         }
 
-        level = GameManager.ins.LevelToLoad.LevelTexture;
+        level = GameManager.ins.LevelToLoad;
         Player = GameManager.ins.Player;
 
     }
@@ -42,14 +44,14 @@ public class MapCreator : MonoBehaviour {
     private void Start()
     {
         #region Level Generation
-        int width = level.width;
-        int height = level.height;
+        int width = level.LevelTexture.width;
+        int height = level.LevelTexture.height;
         
         //Loops through all pixels in level texture
         for (int x = 0; x < width; x++) {
             for (int y = 0; y < height; y++) {
 
-                Color col = level.GetPixel(x, y);
+                Color col = level.LevelTexture.GetPixel(x, y);
 
                 if (objectDictionary.ContainsKey(col)) {
                     GameObject go = Instantiate(objectDictionary[col], new Vector2(x, y), Quaternion.identity, transform);
@@ -78,14 +80,30 @@ public class MapCreator : MonoBehaviour {
     
     private void SpawnPlayer() {
         int Index = Random.Range(0, SpawnNodes.Length);
-        Vector2 position = SpawnNodes[Index].transform.position + new Vector3(0.5f, 0.5f);
-        Instantiate(Player, position, Quaternion.identity);
+        spawnPos = SpawnNodes[Index].transform.position + new Vector3(0.5f, 0.5f);
+        PlayerCopy = Instantiate(Player, spawnPos + level.LevelData.Offset, Quaternion.identity);
         LevelCamera.gameObject.SetActive(false);
     }
 
     public void LoadScene(string name)
     {
         GameManager.ins.LoadScene(name);
+    }
+
+    public void SaveGame() {
+        Debug.Log("called");
+        if (GameManager.ins.LevelTimer.IsStarted) {
+            SimpleSerializer.SaveVector(level.LevelName + "VEC", ((Vector2)PlayerCopy.transform.position).Minus(spawnPos));
+            SimpleSerializer.SaveFloat(level.LevelName + "SEC", GameManager.ins.LevelTimer.GetCurrentTime());
+        }
+    
+    }
+
+    private void Update()
+    {
+        if (GameManager.ins.LevelTimer.IsStarted == false && (Input.GetAxis("Horizontal") != 0f || Input.GetAxis("Vertical") != 0f)) {
+            GameManager.ins.StartGame();
+        }
     }
 }
 

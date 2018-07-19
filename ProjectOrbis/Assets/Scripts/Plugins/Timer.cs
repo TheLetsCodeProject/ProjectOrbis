@@ -110,6 +110,15 @@ namespace Orbis {
             }
 
             /// <summary>
+            /// Gets the timer's current time
+            /// </summary>
+            /// <returns></returns>
+            public float GetCurrentTime()
+            {
+                return Time.time - m_StartTime;
+            }
+
+            /// <summary>
             /// Returns current display time.
             /// </summary>
             /// <returns></returns>

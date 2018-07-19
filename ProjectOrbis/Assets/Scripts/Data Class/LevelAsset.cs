@@ -13,6 +13,8 @@ public class LevelAsset : ScriptableObject {
     public DifficultyLevel Difficulty;
     public Texture2D LevelTexture;
 
+    public SaveData LevelData;
+
     public LevelAsset(string name, DifficultyLevel difficulty, Texture2D map)
     {
         LevelName = name;

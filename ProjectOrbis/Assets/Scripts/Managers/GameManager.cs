@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour {
     public GameObject Player { get {
             m_Player.SetActive(true);
             return m_Player; } }
+
     public List<LevelAsset> levels;
     #endregion
 
@@ -74,6 +75,11 @@ public class GameManager : MonoBehaviour {
             }
         }
 
+        foreach (LevelAsset level in levels) {
+            level.LevelData = ConstructSaveData(level.LevelName);
+        }
+
+
         if (File.Exists(Environment.GetPath("save") + "/Username.txt")) {
             m_username = SimpleSerializer.LoadString("Username");
         }
@@ -81,12 +87,13 @@ public class GameManager : MonoBehaviour {
         
     }
 
+
     #region Logic
 
     public void StartGame()
     {
         Debug.Log("Map Started");
-        LevelTimer.Start();
+        LevelTimer.Start(m_LevelToLoad.LevelData.SaveTime);
 
     }
 
@@ -115,6 +122,15 @@ public class GameManager : MonoBehaviour {
 
 
     }
+
+    public SaveData ConstructSaveData(string LevelName)
+    {
+        float Seconds = SimpleSerializer.LoadFloat(LevelName + "SEC");
+        Vector2 Offset = SimpleSerializer.LoadVector(LevelName + "VEC");
+
+        return new SaveData(Seconds, Offset);
+    }
+
 
     public void LoadScene(string SceneName)
     {

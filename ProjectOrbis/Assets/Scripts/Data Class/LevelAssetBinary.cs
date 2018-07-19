@@ -2,13 +2,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Xml.Serialization;
 
 [Serializable]
 public class LevelAssetBINARY
 {
-    public string name;
-    public int difficulty;
-    public byte[] image;
+        [XmlElement("Level Name")]
+        public string name;
+        [XmlElement("Level Difficulty")]
+        public int difficulty;
+        [XmlElement("map data")]
+        public byte[] image;
 
     public LevelAsset Convert()
     {

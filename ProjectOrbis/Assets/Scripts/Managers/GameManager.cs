@@ -76,11 +76,11 @@ public class GameManager : MonoBehaviour {
         }
 
         foreach (LevelAsset level in levels) {
-            level.LevelData = ConstructSaveData(level.LevelName);
+            level.LevelData = ConstructSaveData(level.SaveKey);
         }
 
 
-        if (File.Exists(Environment.GetPath("save") + "/Username.txt")) {
+        if (File.Exists(Environment.GetPath("save") + "/Username.sav")) {
             m_username = SimpleSerializer.LoadString("Username");
         }
         else m_username = "anonymous";
@@ -108,11 +108,12 @@ public class GameManager : MonoBehaviour {
         m_Player.SetActive(false);
         Instantiate(WinScreen);
 
-
     }
+
     public void LoadLevel(LevelAsset level)
     {
-        if (level == null || level.LevelTexture == null) {
+        if (level == null || level.LevelTexture == null)
+        {
             Debug.LogError("Incomplete level asset: " + level.name);
             return;
         }
@@ -120,13 +121,17 @@ public class GameManager : MonoBehaviour {
         m_LevelToLoad = level;
         SceneManager.LoadScene("LevelScene");
 
-
     }
 
-    public SaveData ConstructSaveData(string LevelName)
+    public void ClearSaveData(LevelAsset level)
     {
-        float Seconds = SimpleSerializer.LoadFloat(LevelName + "SEC");
-        Vector2 Offset = SimpleSerializer.LoadVector(LevelName + "VEC");
+        SimpleSerializer.ClearKey(level.SaveKey);
+    }
+
+    public SaveData ConstructSaveData(string LevelSaveKey)
+    {
+        float Seconds = SimpleSerializer.LoadFloat(LevelSaveKey);
+        Vector2 Offset = SimpleSerializer.LoadVector(LevelSaveKey);
 
         return new SaveData(Seconds, Offset);
     }

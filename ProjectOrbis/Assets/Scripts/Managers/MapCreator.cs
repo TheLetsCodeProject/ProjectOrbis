@@ -8,7 +8,7 @@ public class MapCreator : MonoBehaviour {
 
     //Creates our prefab dictionary
     private Dictionary<Color, GameObject> objectDictionary = new Dictionary<Color, GameObject>();
-    private LevelAsset level;
+    private LevelAsset currentLevel;
     private GameObject Player;
     private GameObject PlayerCopy;
     private Vector2 spawnPos;
@@ -37,7 +37,7 @@ public class MapCreator : MonoBehaviour {
             objectDictionary.Add(pairs[i].Key, pairs[i].tile);
         }
 
-        level = GameManager.ins.LevelToLoad;
+        currentLevel = GameManager.ins.LevelToLoad;
         Player = GameManager.ins.Player;
 
     }
@@ -45,14 +45,14 @@ public class MapCreator : MonoBehaviour {
     private void Start()
     {
         #region Level Generation
-        int width = level.LevelTexture.width;
-        int height = level.LevelTexture.height;
+        int width = currentLevel.LevelTexture.width;
+        int height = currentLevel.LevelTexture.height;
         
         //Loops through all pixels in level texture
         for (int x = 0; x < width; x++) {
             for (int y = 0; y < height; y++) {
 
-                Color col = level.LevelTexture.GetPixel(x, y);
+                Color col = currentLevel.LevelTexture.GetPixel(x, y);
 
                 if (objectDictionary.ContainsKey(col)) {
                     GameObject go = Instantiate(objectDictionary[col], new Vector2(x, y), Quaternion.identity, transform);
@@ -81,7 +81,7 @@ public class MapCreator : MonoBehaviour {
     
     private void SpawnPlayer() {
         spawnPos = SpawnNode.transform.position + new Vector3(0.5f, 0.5f);
-        Vector2 offset = spawnPos + level.LevelData.Offset;
+        Vector2 offset = spawnPos + currentLevel.LevelData.Offset;
         Instantiate(EmptySpawn, offset, Quaternion.identity);
         PlayerCopy = Instantiate(Player, offset, Quaternion.identity);
         LevelCamera.gameObject.SetActive(false);
@@ -99,9 +99,16 @@ public class MapCreator : MonoBehaviour {
             Vector2 PlayerOffset = ((Vector2)PlayerCopy.transform.position) - spawnPos;
             float LastTime = GameManager.ins.LevelTimer.GetCurrentTime();
 
-            SimpleSerializer.SaveVector(level.SaveKey, PlayerOffset);
-            SimpleSerializer.SaveFloat(level.SaveKey, LastTime);
+            SimpleSerializer.SaveVector(currentLevel.SaveKey, PlayerOffset);
+            SimpleSerializer.SaveFloat(currentLevel.SaveKey, LastTime);
         }
+    }
+
+    public void ResetLevel()
+    {
+        GameManager.ins.LevelTimer.Reset();
+        GameManager.ins.ResetData(currentLevel);
+        GameManager.ins.LoadLevel(currentLevel);
     }
 }
 

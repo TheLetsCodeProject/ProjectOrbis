@@ -93,10 +93,14 @@ public class MapCreator : MonoBehaviour {
     }
 
     public void SaveGame() {
-        Debug.Log("called");
+        Debug.Log("Saved");
         if (GameManager.ins.LevelTimer.IsStarted) {
-            SimpleSerializer.SaveVector(level.SaveKey, ((Vector2)PlayerCopy.transform.position).Minus(spawnPos));
-            SimpleSerializer.SaveFloat(level.SaveKey, GameManager.ins.LevelTimer.GetCurrentTime());
+
+            Vector2 PlayerOffset = ((Vector2)PlayerCopy.transform.position) - spawnPos;
+            float LastTime = GameManager.ins.LevelTimer.GetCurrentTime();
+
+            SimpleSerializer.SaveVector(level.SaveKey, PlayerOffset);
+            SimpleSerializer.SaveFloat(level.SaveKey, LastTime);
         }
     }
 }

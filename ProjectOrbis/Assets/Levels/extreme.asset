@@ -14,5 +14,9 @@ MonoBehaviour:
   LevelName: Extreme
   PublicKey: 5b40455b191a8a0bccfeb545
   PrivateKey: 7c8Np5QoVEuCbi-Fj0oz_QoYgKgVFKm0m-cAshb5WGcg
+  SaveKey: NQEqwrdu3fTjm35
   Difficulty: 3
   LevelTexture: {fileID: 2800000, guid: b1163a01a760b3a47a0247ca718b0f4b, type: 3}
+  LevelData:
+    SaveTime: 3.260743
+    Offset: {x: 4.391692, y: -6.034687}

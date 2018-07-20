@@ -14,5 +14,9 @@ MonoBehaviour:
   LevelName: Hard 1
   PublicKey: 5b4044e0191a8a0bccfeb32f
   PrivateKey: BRMrjHdtnUO52-aeu961qQi8djE9DOGEOpnYuUow-_YA
+  SaveKey: ZpjRlVjtjUjBnG0
   Difficulty: 2
   LevelTexture: {fileID: 2800000, guid: d24a1c596afd64a41a720337a1bf9772, type: 3}
+  LevelData:
+    SaveTime: 3.260743
+    Offset: {x: 4.391692, y: -6.034687}

@@ -263,6 +263,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DoBreakOnError: 0
+  EmptySpawn: {fileID: 1208316935257968, guid: 8af2026916a0609459c4da074aa08822, type: 2}
   MissingTexture: {fileID: 1264400516673986, guid: 0df18fa8f99cc624c9caaed069f35317,
     type: 2}
   LevelCamera: {fileID: 2130101075}

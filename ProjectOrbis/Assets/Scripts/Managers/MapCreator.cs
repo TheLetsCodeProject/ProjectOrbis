@@ -12,12 +12,13 @@ public class MapCreator : MonoBehaviour {
     private GameObject Player;
     private GameObject PlayerCopy;
     private Vector2 spawnPos;
-    GameObject[] SpawnNodes;
+    GameObject SpawnNode;
 
     [Header("Preferences")]
     public bool DoBreakOnError = false; //Does the user want an editor break on error
     [Space(10)]
-    [Header("Level Settings")]
+    [Header("Level Objects")]
+    public GameObject EmptySpawn;
     public GameObject MissingTexture;
     public Camera LevelCamera;
 
@@ -70,8 +71,8 @@ public class MapCreator : MonoBehaviour {
         }
         #endregion
 
-        SpawnNodes = GameObject.FindGameObjectsWithTag("SpawnNode");
-        if(SpawnNodes.Length == 0) {
+        SpawnNode = GameObject.FindGameObjectWithTag("SpawnNode");
+        if(SpawnNode == null) {
             Debug.LogError("No spawn node was found, have you forgotten to add one");
             return;
         }    
@@ -79,9 +80,10 @@ public class MapCreator : MonoBehaviour {
     }
     
     private void SpawnPlayer() {
-        int Index = Random.Range(0, SpawnNodes.Length);
-        spawnPos = SpawnNodes[Index].transform.position + new Vector3(0.5f, 0.5f);
-        PlayerCopy = Instantiate(Player, spawnPos + level.LevelData.Offset, Quaternion.identity);
+        spawnPos = SpawnNode.transform.position + new Vector3(0.5f, 0.5f);
+        Vector2 offset = spawnPos + level.LevelData.Offset;
+        Instantiate(EmptySpawn, offset, Quaternion.identity);
+        PlayerCopy = Instantiate(Player, offset, Quaternion.identity);
         LevelCamera.gameObject.SetActive(false);
     }
 
@@ -95,14 +97,6 @@ public class MapCreator : MonoBehaviour {
         if (GameManager.ins.LevelTimer.IsStarted) {
             SimpleSerializer.SaveVector(level.SaveKey, ((Vector2)PlayerCopy.transform.position).Minus(spawnPos));
             SimpleSerializer.SaveFloat(level.SaveKey, GameManager.ins.LevelTimer.GetCurrentTime());
-        }
-    
-    }
-
-    private void Update()
-    {
-        if (GameManager.ins.LevelTimer.IsStarted == false && (Input.GetAxis("Horizontal") != 0f || Input.GetAxis("Vertical") != 0f)) {
-            GameManager.ins.StartGame();
         }
     }
 }

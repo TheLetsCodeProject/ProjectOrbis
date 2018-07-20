@@ -113,7 +113,6 @@ public class GameManager : MonoBehaviour {
             lastTime = LevelTimer.GetFormattedTime();
 
         }
-        m_Player.SetActive(false);
         Instantiate(WinScreen);
         ResetData(m_LevelToLoad);
     }

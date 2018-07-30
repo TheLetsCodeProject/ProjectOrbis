@@ -16,7 +16,7 @@ MonoBehaviour:
   PrivateKey: NYFbnrq5gkCGzUXnSrEPaw8XXsZ_B6AkGjz8x_wEAJKg
   SaveKey: uiarN4BgKE8eQPT
   Difficulty: 1
-  LevelTexture: {fileID: 2800000, guid: 3c0511c6ef1bcb74291b0413b71c4ab5, type: 3}
+  LevelTexture: {fileID: 2800000, guid: 1c70539dc792f3f418fa2546c1775282, type: 3}
   LevelData:
-    SaveTime: 3.260743
-    Offset: {x: 4.391692, y: -6.034687}
+    SaveTime: 0
+    Offset: {x: 0, y: 0}

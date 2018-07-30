@@ -14,5 +14,9 @@ MonoBehaviour:
   LevelName: Tutorial Pt.3
   PublicKey: 5b39d4a6191a8a0bccdd8357
   PrivateKey: TynHXOL8IEOxx-v_T4PqNgwPxLR4fA9kSnQ5ISh0zMdQ
+  SaveKey: MoIMqJroUbECnrr
   Difficulty: 0
   LevelTexture: {fileID: 2800000, guid: d9772b59dd689a34cb6d79b666804afb, type: 3}
+  LevelData:
+    SaveTime: 3.260743
+    Offset: {x: 4.391692, y: -6.034687}

@@ -8,16 +8,17 @@ public class MapCreator : MonoBehaviour {
 
     //Creates our prefab dictionary
     private Dictionary<Color, GameObject> objectDictionary = new Dictionary<Color, GameObject>();
-    private LevelAsset level;
+    private LevelAsset currentLevel;
     private GameObject Player;
     private GameObject PlayerCopy;
     private Vector2 spawnPos;
-    GameObject[] SpawnNodes;
+    GameObject SpawnNode;
 
     [Header("Preferences")]
     public bool DoBreakOnError = false; //Does the user want an editor break on error
     [Space(10)]
-    [Header("Level Settings")]
+    [Header("Level Objects")]
+    public GameObject EmptySpawn;
     public GameObject MissingTexture;
     public Camera LevelCamera;
 
@@ -36,7 +37,7 @@ public class MapCreator : MonoBehaviour {
             objectDictionary.Add(pairs[i].Key, pairs[i].tile);
         }
 
-        level = GameManager.ins.LevelToLoad;
+        currentLevel = GameManager.ins.LevelToLoad;
         Player = GameManager.ins.Player;
 
     }
@@ -44,14 +45,14 @@ public class MapCreator : MonoBehaviour {
     private void Start()
     {
         #region Level Generation
-        int width = level.LevelTexture.width;
-        int height = level.LevelTexture.height;
+        int width = currentLevel.LevelTexture.width;
+        int height = currentLevel.LevelTexture.height;
         
         //Loops through all pixels in level texture
         for (int x = 0; x < width; x++) {
             for (int y = 0; y < height; y++) {
 
-                Color col = level.LevelTexture.GetPixel(x, y);
+                Color col = currentLevel.LevelTexture.GetPixel(x, y);
 
                 if (objectDictionary.ContainsKey(col)) {
                     GameObject go = Instantiate(objectDictionary[col], new Vector2(x, y), Quaternion.identity, transform);
@@ -70,8 +71,8 @@ public class MapCreator : MonoBehaviour {
         }
         #endregion
 
-        SpawnNodes = GameObject.FindGameObjectsWithTag("SpawnNode");
-        if(SpawnNodes.Length == 0) {
+        SpawnNode = GameObject.FindGameObjectWithTag("SpawnNode");
+        if(SpawnNode == null) {
             Debug.LogError("No spawn node was found, have you forgotten to add one");
             return;
         }    
@@ -79,9 +80,10 @@ public class MapCreator : MonoBehaviour {
     }
     
     private void SpawnPlayer() {
-        int Index = Random.Range(0, SpawnNodes.Length);
-        spawnPos = SpawnNodes[Index].transform.position + new Vector3(0.5f, 0.5f);
-        PlayerCopy = Instantiate(Player, spawnPos + level.LevelData.Offset, Quaternion.identity);
+        spawnPos = SpawnNode.transform.position + new Vector3(0.5f, 0.5f);
+        Vector2 offset = spawnPos + currentLevel.LevelData.Offset;
+        Instantiate(EmptySpawn, offset, Quaternion.identity);
+        PlayerCopy = Instantiate(Player, offset, Quaternion.identity);
         LevelCamera.gameObject.SetActive(false);
     }
 
@@ -91,19 +93,22 @@ public class MapCreator : MonoBehaviour {
     }
 
     public void SaveGame() {
-        Debug.Log("called");
+        Debug.Log("Saved");
         if (GameManager.ins.LevelTimer.IsStarted) {
-            SimpleSerializer.SaveVector(level.LevelName + "VEC", ((Vector2)PlayerCopy.transform.position).Minus(spawnPos));
-            SimpleSerializer.SaveFloat(level.LevelName + "SEC", GameManager.ins.LevelTimer.GetCurrentTime());
+
+            Vector2 PlayerOffset = ((Vector2)PlayerCopy.transform.position) - spawnPos;
+            float LastTime = GameManager.ins.LevelTimer.GetCurrentTime();
+
+            SimpleSerializer.SaveVector(currentLevel.SaveKey, PlayerOffset);
+            SimpleSerializer.SaveFloat(currentLevel.SaveKey, LastTime);
         }
-    
     }
 
-    private void Update()
+    public void ResetLevel()
     {
-        if (GameManager.ins.LevelTimer.IsStarted == false && (Input.GetAxis("Horizontal") != 0f || Input.GetAxis("Vertical") != 0f)) {
-            GameManager.ins.StartGame();
-        }
+        GameManager.ins.LevelTimer.Reset();
+        GameManager.ins.ResetData(currentLevel);
+        GameManager.ins.LoadLevel(currentLevel);
     }
 }
 

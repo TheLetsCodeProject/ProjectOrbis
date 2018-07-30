@@ -8,6 +8,7 @@ public class LevelAsset : ScriptableObject {
     public string LevelName;
     public string PublicKey;
     public string PrivateKey;
+    public string SaveKey;
 
     [Tooltip("0: Easy, 1: Medium, 2: Hard")]
     public DifficultyLevel Difficulty;
@@ -18,6 +19,7 @@ public class LevelAsset : ScriptableObject {
     public LevelAsset(string name, DifficultyLevel difficulty, Texture2D map)
     {
         LevelName = name;
+        SaveKey = name + "KEY";
         Difficulty = difficulty;
         LevelTexture = map;
     }

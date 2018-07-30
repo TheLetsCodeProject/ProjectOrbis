@@ -13,15 +13,17 @@ public static class SimpleSerializer
     public static Environment Env = new Environment("game.config");
     #endregion
 
+    const string FILE_EXTENSION = ".sav";
+
     public static void SaveInt(string key, int value)
     {
-        string PATH = Environment.GetPath("save") + "/" + key + ".txt";
+        string PATH = Environment.GetPath("save") + "/" + key + "INT" + FILE_EXTENSION;
         File.WriteAllText(PATH, value.ToString());
     }
 
     public static int LoadInt(string key)
     {
-        string PATH = Environment.GetPath("save") + "/" + key + ".txt";
+        string PATH = Environment.GetPath("save") + "/" + key + "INT" + FILE_EXTENSION;
         if (File.Exists(PATH))
         {
             string result = File.ReadAllText(PATH);
@@ -33,13 +35,13 @@ public static class SimpleSerializer
 
     public static void SaveFloat(string key, float value)
     {
-        string PATH = Environment.GetPath("save") + "/" + key + ".txt";
+        string PATH = Environment.GetPath("save") + "/" + key + "FLT" + FILE_EXTENSION;
         File.WriteAllText(PATH, value.ToString());
     }
 
     public static float LoadFloat(string key)
     {
-        string PATH = Environment.GetPath("save") + "/" + key + ".txt";
+        string PATH = Environment.GetPath("save") + "/" + key + "FLT" + FILE_EXTENSION;
         if (File.Exists(PATH)) {
             string result = File.ReadAllText(PATH);
             return float.Parse(result);
@@ -50,13 +52,13 @@ public static class SimpleSerializer
 
     public static void SaveString(string key, string value)
     {
-        string PATH = Environment.GetPath("save") + "/" + key + ".txt";
+        string PATH = Environment.GetPath("save") + "/" + key + "STR" + FILE_EXTENSION;
         File.WriteAllText(PATH, value);
     }
 
     public static string LoadString(string key)
     {
-        string PATH = Environment.GetPath("save") + "/" + key + ".txt";
+        string PATH = Environment.GetPath("save") + "/" + key + "STR" + FILE_EXTENSION;
         if (File.Exists(PATH))
         {
             return File.ReadAllText(PATH);
@@ -67,7 +69,7 @@ public static class SimpleSerializer
 
     public static void SaveVector(string key, Vector2 value) {
 
-        string PATH = Environment.GetPath("save") + "/" + key + ".txt";
+        string PATH = Environment.GetPath("save") + "/" + key + "VEC" + FILE_EXTENSION;
         string[] data = new string[2];
         data[0] = value.x.ToString();
         data[1] = value.y.ToString();
@@ -76,7 +78,7 @@ public static class SimpleSerializer
 
     public static Vector2 LoadVector(string key)
     {
-        string PATH = Environment.GetPath("save") + "/" + key + ".txt";
+        string PATH = Environment.GetPath("save") + "/" + key + "VEC" + FILE_EXTENSION;
         if (File.Exists(PATH))
         {
             string[] data = File.ReadAllLines(PATH);
@@ -87,6 +89,20 @@ public static class SimpleSerializer
         }
         else return Vector2.zero;
 
+    }
+
+    public static void ClearKey(string Key)
+    {
+        string[] extens = new string[] { "VEC", "INT", "FLT", "STR" };
+
+        for (int i = 0; i < extens.Length; i++)
+        {
+            string PATH = Environment.GetPath("save") + "/" + Key + extens[i] + FILE_EXTENSION;
+            if(File.Exists(PATH))
+            {
+                File.Delete(PATH);
+            }
+        }
     }
 
     public static bool IsFirstLoad()

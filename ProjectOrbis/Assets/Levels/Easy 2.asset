@@ -11,17 +11,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b3802396ccdadc47919edf5cedf7c83, type: 3}
   m_Name: Easy 2
   m_EditorClassIdentifier: 
-  LevelName: 
-  PublicKey: 5b39d430191a8a0bccdd8233
-  PrivateKey: L4lCy111ZUOIpvoS8kEHlwFfmvVIX0RU2cSYSAnXNxxg
-  SaveKey: e6Zrtcdzly7SXo3
+  LevelName: Easy 2
+  PublicKey: 
+  PrivateKey: 
+  SaveKey: csRg0TrCKN3IPIf
   Difficulty: 0
   LevelTexture: {fileID: 2800000, guid: 1c164451fcbc7bf46aea2331f68b33ac, type: 3}
   LevelData:
-<<<<<<< HEAD
     SaveTime: 0
     Offset: {x: 0, y: 0}
-=======
-    SaveTime: 3.260743
-    Offset: {x: 4.391692, y: -6.034687}
->>>>>>> e540d53847613ce1af24bc01f26116c4a75b4269

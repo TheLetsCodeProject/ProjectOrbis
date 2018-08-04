@@ -147,7 +147,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 166.25, y: 159.4}
+  m_AnchoredPosition: {x: -118.75003, y: 187.49997}
   m_SizeDelta: {x: 99.75, y: 21.63}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &309176476
@@ -269,7 +269,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 166.24994, y: 134.4}
+  m_AnchoredPosition: {x: -118.75003, y: 162.49997}
   m_SizeDelta: {x: 99.75, y: 21.63}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &419169206
@@ -534,7 +534,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000013351, y: 146.62001}
+  m_AnchoredPosition: {x: -285, y: 174.99997}
   m_SizeDelta: {x: 329.89, y: 80.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &597184532
@@ -631,7 +631,12 @@ Prefab:
         type: 2}
       propertyPath: m_LevelToLoad
       value: 
-      objectReference: {fileID: 11400000, guid: 9f7c99beab0172340bd95be8dfc87075,
+      objectReference: {fileID: 0}
+    - target: {fileID: 114797345568946606, guid: 25cf02c5609fd9342a876aae335e7280,
+        type: 2}
+      propertyPath: levels.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 8fc57240c97cff243b20c3830c4946a2,
         type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 25cf02c5609fd9342a876aae335e7280, type: 2}
@@ -765,8 +770,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 146.62}
-  m_SizeDelta: {x: -590.72, y: -301.77}
+  m_AnchoredPosition: {x: -285, y: 175}
+  m_SizeDelta: {x: -590.7, y: -373.22}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1327645693
 MonoBehaviour:
@@ -1004,7 +1009,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: SAVE
+  m_Text: Save
 --- !u!222 &2050728294
 CanvasRenderer:
   m_ObjectHideFlags: 0

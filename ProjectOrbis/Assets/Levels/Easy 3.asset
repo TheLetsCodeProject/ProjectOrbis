@@ -11,12 +11,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b3802396ccdadc47919edf5cedf7c83, type: 3}
   m_Name: Easy 3
   m_EditorClassIdentifier: 
-  LevelName: Tutorial Pt.3
+  LevelName: Effortless
   PublicKey: 5b39d4a6191a8a0bccdd8357
   PrivateKey: TynHXOL8IEOxx-v_T4PqNgwPxLR4fA9kSnQ5ISh0zMdQ
   SaveKey: MoIMqJroUbECnrr
   Difficulty: 0
   LevelTexture: {fileID: 2800000, guid: d9772b59dd689a34cb6d79b666804afb, type: 3}
   LevelData:
-    SaveTime: 3.260743
-    Offset: {x: 4.391692, y: -6.034687}
+    SaveTime: 0
+    Offset: {x: 0, y: 0}

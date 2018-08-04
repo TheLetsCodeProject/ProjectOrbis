@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b3802396ccdadc47919edf5cedf7c83, type: 3}
   m_Name: Medium 3
   m_EditorClassIdentifier: 
-  LevelName: Medium 3
+  LevelName: Moderate
   PublicKey: 5b39d5b1191a8a0bccdd860b
   PrivateKey: NYFbnrq5gkCGzUXnSrEPaw8XXsZ_B6AkGjz8x_wEAJKg
   SaveKey: uiarN4BgKE8eQPT

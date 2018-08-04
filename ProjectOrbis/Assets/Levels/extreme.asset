@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b3802396ccdadc47919edf5cedf7c83, type: 3}
   m_Name: extreme
   m_EditorClassIdentifier: 
-  LevelName: Extreme
+  LevelName: Labrynth
   PublicKey: 5b40455b191a8a0bccfeb545
   PrivateKey: 7c8Np5QoVEuCbi-Fj0oz_QoYgKgVFKm0m-cAshb5WGcg
   SaveKey: NQEqwrdu3fTjm35

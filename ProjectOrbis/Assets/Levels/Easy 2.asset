@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Name: Easy 2
   m_EditorClassIdentifier: 
   LevelName: Simple
-  PublicKey: 
-  PrivateKey: 
+  PublicKey: 5b39d430191a8a0bccdd8233
+  PrivateKey: L4lCy111ZUOIpvoS8kEHlwFfmvVIX0RU2cSYSAnXNxxg
   SaveKey: csRg0TrCKN3IPIf
   Difficulty: 0
   LevelTexture: {fileID: 2800000, guid: 1c164451fcbc7bf46aea2331f68b33ac, type: 3}

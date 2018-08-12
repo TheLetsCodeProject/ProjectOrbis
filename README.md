@@ -1,5 +1,10 @@
 ![Orbis](orbis.png)
 
+
+[![GitHub issues](https://img.shields.io/github/issues/TheLetsCodeProject/ProjectOrbis_2.svg)](https://github.com/TheLetsCodeProject/ProjectOrbis_2/issues) 
+![Github All Releases](https://img.shields.io/github/downloads/TheLetsCodeProject/ProjectOrbis_2/total.svg)
+
+
 Our first foray into the world of game development!
 
 # Some things we will learn

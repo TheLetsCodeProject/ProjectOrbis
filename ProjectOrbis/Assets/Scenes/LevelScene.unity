@@ -488,6 +488,9 @@ MonoBehaviour:
   - Name: BrickWall
     Key: {r: 1, g: 0, b: 1, a: 1}
     tile: {fileID: 1510169631824388, guid: b3eb11c4493717c45a77e51afc057163, type: 2}
+  - Name: NicBlock
+    Key: {r: 0.3019608, g: 0.3019608, b: 0.3019608, a: 1}
+    tile: {fileID: 1868183491495570, guid: d616e138c4e15e9419405bb3b4206ac3, type: 2}
 --- !u!4 &516925618
 Transform:
   m_ObjectHideFlags: 0
@@ -631,7 +634,8 @@ Prefab:
         type: 2}
       propertyPath: m_LevelToLoad
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 11400000, guid: 987e829d694320349aaf8a869692faba,
+        type: 2}
     - target: {fileID: 114797345568946606, guid: 25cf02c5609fd9342a876aae335e7280,
         type: 2}
       propertyPath: levels.Array.data[1]

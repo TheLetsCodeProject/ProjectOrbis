@@ -85,7 +85,7 @@ public class GameManager : MonoBehaviour {
         }
 
 
-        if (File.Exists(Environment.GetPath("save") + "/Username.sav")) {
+        if (File.Exists(Environment.GetPath("save") + "/UsernameSTR.sav")) {
             m_username = SimpleSerializer.LoadString("Username");
         }
         else m_username = "anonymous";

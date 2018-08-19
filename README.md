@@ -4,6 +4,8 @@
 [![GitHub issues](https://img.shields.io/github/issues/TheLetsCodeProject/ProjectOrbis_2.svg)](https://github.com/TheLetsCodeProject/ProjectOrbis_2/issues) 
 ![Github All Releases](https://img.shields.io/github/downloads/TheLetsCodeProject/ProjectOrbis_2/total.svg)
 ![GitHub release](https://img.shields.io/github/release/TheLetsCodeProject/ProjectOrbis_2.svg)
+![GitHub commits](https://img.shields.io/github/commits-since/TheLetsCodeProject/ProjectOrbis_2/v2.0.0-Beta.1.svg)
+
 
 
 

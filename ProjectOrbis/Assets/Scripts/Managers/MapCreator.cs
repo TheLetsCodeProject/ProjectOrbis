@@ -37,6 +37,9 @@ public class MapCreator : MonoBehaviour {
             objectDictionary.Add(pairs[i].Key, pairs[i].tile);
         }
 
+        //TODO: WTF is this! The map creator class should probably be a service clas
+        //      that could have a level object passes to it along with a world object
+        //      to attach the necessary objects to
         currentLevel = GameManager.ins.LevelToLoad;
         Player = GameManager.ins.Player;
 
@@ -49,6 +52,7 @@ public class MapCreator : MonoBehaviour {
         int height = currentLevel.LevelTexture.height;
         
         //Loops through all pixels in level texture
+        //TODO: Gut this entire function
         for (int x = 0; x < width; x++) {
             for (int y = 0; y < height; y++) {
 
@@ -63,7 +67,8 @@ public class MapCreator : MonoBehaviour {
                     go.name += string.Format("MissingTexture ({0}, {1})", x, y);
                     Debug.LogWarning(string.Format("Tile could not be found (tile at {0}, {1})", x, y) + string.Format("R: {0} G: {1} B: {2}", col.r * 255, col.g * 255, col.b * 255));
                   
-                    if (DoBreakOnError) {
+                    if (DoBreakOnError) { // a setting flag like -gl_hard_fix would be better
+                        
                         Debug.Break();
                     }                
                 }
@@ -92,6 +97,7 @@ public class MapCreator : MonoBehaviour {
         GameManager.ins.LoadScene(name);
     }
 
+    //TODO: Move this shit somewhere else. SRP is a scared pact
     public void SaveGame() {
         Debug.Log("Saved");
         if (GameManager.ins.LevelTimer.IsStarted) {
